@@ -1,0 +1,275 @@
+openapi: 3.0.0
+info:
+  title: Snap
+  version: '1.0'
+  description: Snap NOA Orders
+  contact:
+    name: Snap NOA
+    url: 'https://snapnoa.com'
+    email: info@snapnoa.com
+servers:
+  - url: 'https://snapnoa-api-test.azurewebsites.net'
+    description: TEST environment
+paths:
+  /documentTypes:
+    get:
+      summary: GET document types
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: string
+              examples:
+                example-all:
+                  value:
+                    - NOA
+                    - T4
+                    - T4A
+                    - ProofOfIncome
+                    - SOA
+                    - CCB
+                    - T1013
+      operationId: get-documentTypes
+      description: Retrieve all the document types that are available for order
+  /orders:
+    get:
+      summary: GET all orders
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  description: The entity describing orders received
+                  type: object
+                  x-examples:
+                    example-complete:
+                      id: b3f7178c-02b9-47c0-93ac-3680c1c1793c
+                      orderStatus: Completed
+                      clientFirstName: George N.
+                      clientLastName: Espinosa
+                      notifyContactName: Florine J. Atkins
+                      notifyContactEmailAddress: test@example.com
+                      notifyContactSms: null
+                      documentsRequested:
+                        - NOA
+                        - T4
+                      downloadUrl: /orders/b3f7178c-02b9-47c0-93ac-3680c1c1793c/documents/76d9ebd3-c0e8-459a-aa20-56ebcc1bdec8
+                    example-incomplete:
+                      id: 24601d89-d170-4fd3-a369-764ed25c6fd4
+                      orderStatus: Waiting
+                      clientFirstName: Sally
+                      clientLastName: Grenoa
+                      notifyContactName: Florine J. Atkins
+                      notifyContactEmailAddress: test@example.com
+                      notifyContactSms: null
+                      documentsRequested:
+                        - NOA
+                        - T4
+                      downloadUrl: null
+                  properties:
+                    id:
+                      type: string
+                      minLength: 1
+                      description: the unique identifier of this order
+                      format: uuid
+                    orderStatus:
+                      type: string
+                      minLength: 1
+                      enum:
+                        - waiting
+                        - completed
+                    clientFirstName:
+                      type: string
+                      minLength: 1
+                    clientLastName:
+                      type: string
+                      minLength: 1
+                    notifyContactName:
+                      type: string
+                      minLength: 1
+                    notifyContactEmailAddress:
+                      type: string
+                      minLength: 1
+                    notifyContactSms:
+                      type: string
+                    documentsRequested:
+                      type: array
+                      uniqueItems: true
+                      items:
+                        type: string
+                        enum:
+                          - NOA
+                          - T4
+                          - T4A
+                          - ProofOfIncome
+                          - SOA
+                          - CCB
+                          - T1013
+                    downloadUrl:
+                      type: string
+                      minLength: 1
+                      description: a URI for the document package. nullable
+                    completedOnUtc:
+                      type: string
+                      format: date-time
+                  required:
+                    - id
+                    - orderStatus
+                    - clientFirstName
+                    - clientLastName
+                    - notifyContactName
+                    - notifyContactEmailAddress
+                    - notifyContactSms
+                    - documentsRequested
+                    - downloadUrl
+                    - completedOnUtc
+      operationId: get-orders
+      parameters:
+        - schema:
+            type: string
+            enum:
+              - Waiting
+              - Completed
+          in: query
+          name: orderStatus
+          description: request only those with this status
+      description: Retrieve all the orders submitted
+    post:
+      summary: CREATE Order
+      operationId: post-orders
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/paths/~1orders/post/requestBody/content/application~1json/schema'
+          headers:
+            x-functions-key:
+              schema:
+                type: string
+      description: Create a new order
+      requestBody:
+        content:
+          application/json:
+            schema:
+              description: The entity sent by a requestor to order documents
+              type: object
+              x-examples:
+                example:
+                  clientFirstName: string
+                  clientLastName: string
+                  notifyContactName: string
+                  notifyContactEmailAddress: string
+                  notifyContactSms: string
+                  documentsRequested:
+                    - NOA
+              properties:
+                clientFirstName:
+                  type: string
+                  minLength: 1
+                clientLastName:
+                  type: string
+                  minLength: 1
+                notifyContactName:
+                  type: string
+                  minLength: 1
+                notifyContactEmailAddress:
+                  type: string
+                  minLength: 1
+                notifyContactSms:
+                  type: string
+                  minLength: 1
+                documentsRequested:
+                  type: array
+                  uniqueItems: true
+                  items:
+                    type: string
+                    enum:
+                      - NOA
+                      - T4
+                      - T4A
+                      - ProofOfIncome
+                      - SOA
+                      - CCB
+                      - T1013
+              required:
+                - clientFirstName
+                - clientLastName
+                - notifyContactName
+                - notifyContactEmailAddress
+                - notifyContactSms
+                - documentsRequested
+            examples:
+              example-1:
+                value:
+                  clientFirstName: string
+                  clientLastName: string
+                  notifyContactName: string
+                  notifyContactEmailAddress: string
+                  notifyContactSms: string
+                  documentsRequested:
+                    - NOA
+          application/xml:
+            schema:
+              type: object
+              properties: {}
+        description: ''
+      parameters: []
+    parameters: []
+  '/orders/{orderId}/documents/{documentId}':
+    parameters:
+      - schema:
+          type: string
+        name: orderId
+        in: path
+        required: true
+      - schema:
+          type: string
+        name: documentId
+        in: path
+        required: true
+    get:
+      summary: GET order documents bundle
+      tags: []
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/zip
+              description: The type of file being returned. Always a zip file.
+              required: true
+            Content-Length:
+              schema:
+                type: string
+                example: '1372638'
+              description: 'The size, in bytes, of the response file'
+              required: true
+            Content-Disposition:
+              schema:
+                type: string
+                example: attachment; filename="Order_1234_Bundle.zip";
+              description: the attachment file name
+              required: true
+      operationId: get-orders-orderId-documents-documentId
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: x-functions-key
+      description: Retrieve all the documents generated for this order. You must retrieve the documentId from the order entity
+components:
+  schemas: {}
+  securitySchemes: {}
