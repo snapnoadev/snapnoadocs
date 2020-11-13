@@ -1,0 +1,187 @@
+{
+	"info": {
+		"_postman_id": "5df6b027-e105-4250-983c-02d17932faaf",
+		"name": "Snap NOA",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Submit Order",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "x-functions-key",
+						"value": "SKsKTyLzw5S6Tb6x/6AbhLFtAk02ldyvnXYLJll40T7a8nLW/56UFA==",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "SnapConsentFile",
+							"type": "file",
+							"src": "/Users/philcampbell/Downloads/September_2020_newsletter.pdf"
+						},
+						{
+							"key": "SnapOrder",
+							"value": "{\"ClientFirstName\":\"Cliento\",\n\"ClientLastName\":\"Testinga\",\n\"NotifyContactName\":\"Phil Test\",\n\"NotifyContactEmailAddress\":\"philoushka@gmail.com\",\n\"NotifyContactSms\":\"250-863-9632\",\n\"DocumentsRequested\":[\"NOA\",\"T4\"]\n}",
+							"type": "text"
+						}
+					],
+					"options": {
+						"formdata": {}
+					}
+				},
+				"url": {
+					"raw": "{{host}}/api/orders",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"orders"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Order Zip",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-functions-key",
+						"value": "SKsKTyLzw5S6Tb6x/6AbhLFtAk02ldyvnXYLJll40T7a8nLW/56UFA==",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{host}}/api/orders/b3f7178c-02b9-47c0-93ac-3680c1c1793c/documents/76d9ebd3-c0e8-459a-aa20-56ebcc1bdec8",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"orders",
+						"b3f7178c-02b9-47c0-93ac-3680c1c1793c",
+						"documents",
+						"76d9ebd3-c0e8-459a-aa20-56ebcc1bdec8"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "List Orders",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-functions-key",
+						"value": "SKsKTyLzw5S6Tb6x/6AbhLFtAk02ldyvnXYLJll40T7a8nLW/56UFA==",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{host}}/api/orders",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"orders"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "List Document Types",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-functions-key",
+						"type": "text",
+						"value": "SKsKTyLzw5S6Tb6x/6AbhLFtAk02ldyvnXYLJll40T7a8nLW/56UFA=="
+					}
+				],
+				"url": {
+					"raw": "{{host}}/api/documentTypes",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"documentTypes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "List Orders with valid orderStatus",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-functions-key",
+						"type": "text",
+						"value": "SKsKTyLzw5S6Tb6x/6AbhLFtAk02ldyvnXYLJll40T7a8nLW/56UFA=="
+					}
+				],
+				"url": {
+					"raw": "{{host}}/api/orders?orderStatus=completed",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"orders"
+					],
+					"query": [
+						{
+							"key": "orderStatus",
+							"value": "completed"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "List Orders with invalid orderStatus",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-functions-key",
+						"value": "SKsKTyLzw5S6Tb6x/6AbhLFtAk02ldyvnXYLJll40T7a8nLW/56UFA==",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{host}}/api/orders?orderStatus=badbadbad",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"orders"
+					],
+					"query": [
+						{
+							"key": "orderStatus",
+							"value": "badbadbad"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
