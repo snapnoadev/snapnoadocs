@@ -1,0 +1,24 @@
+{
+	"id": "05ab895d-c9b5-4bd5-9537-b48ff09efab4",
+	"name": "PROD SNAP",
+	"values": [
+		{
+			"key": "host",
+			"value": "https://api.snapnoa.com",
+			"enabled": true
+		},
+		{
+			"key": "client_key",
+			"value": "",
+			"enabled": true
+		},
+		{
+			"key": "snap_order_json",
+			"value": "{\n    \"ClientFirstName\": \"First\",\n    \"ClientLastName\": \"Last\",\n    \"NotifyContactName\": \"Test Contact Name\",\n    \"NotifyContactEmailAddress\": \"test@example.com\",\n    \"NotifyContactSms\": \"403-222-4444\",\n    \"DocumentsRequested\": [\n        \"NOA\",\n        \"T4\"\n    ]\n}",
+			"enabled": true
+		}
+	],
+	"_postman_variable_scope": "environment",
+	"_postman_exported_at": "2021-02-23T03:55:24.563Z",
+	"_postman_exported_using": "Postman/8.0.6"
+}
