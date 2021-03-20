@@ -56,7 +56,7 @@ Version March 2020
 6. Renamed Notify Customer SMS to Broker SMS to clarify and improve readability on the Client and the server side
     - All API requests should utilize "BrokerSMS" as part of the SnapOrder API parameter
 
-7. Added new API call GetOrder to retreive a single specific order identified by the Rerence Order number. Details included in Postman Request
+7. Added new API call GetOrder to retreive a single specific order identified by the Reference Order number. Details included in Postman Request
 
 8. Provided readable Rerence Order Number to all order requests (List and Individual)
 
