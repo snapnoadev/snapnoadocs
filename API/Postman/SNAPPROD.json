@@ -14,7 +14,7 @@
 		},
 		{
 			"key": "snap_order_json",
-			"value": "{\n    \"ClientFirstName\": \"First\",\n    \"ClientLastName\": \"Last\",\n    \"ClientEmailAddress\": \"testmemes4@test.com\",\n    \"BrokerName\": \"Test Contact Name\",\n    \"BrokerEmail\": \"sebasmuro@gmail.com\",\n    \"BrokerSMSNumber\": \"403-222-4444\",\n    \"DocumentsRequested\": [\n        \"NOA\",\n        \"T4\"\n    ]\n}",
+			"value": "{\n    \"ClientFirstName\": \"First\",\n    \"ClientLastName\": \"Last\",\n    \"ClientEmailAddress\": \"testmemes4@test.com\",\n    \"BrokerName\": \"Test Contact Name\",\n    \"BrokerEmail\": \"test@gmail.com\",\n    \"BrokerSMSNumber\": \"403-222-4444\",\n    \"DocumentsRequested\": [\n        \"NOA\",\n        \"T4\"\n    ]\n}",
 			"enabled": true
 		}
 	],
