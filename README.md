@@ -36,3 +36,19 @@ Contact us for more details.
 
 1. You will need an API key provisioned for each environment. Contact us for details.
 2. Use Postman or any other suitable tool to connect to the endpoints. Use the Postman collection and the environment variables.
+
+
+## CHANGELOG
+
+Version March 2020
+
+1. Fixed issues with API uploads failing.
+2. Fixed issues with file retrieiving returning 404 errors.
+3. Added Mandatory field Client Email to the Order Request 
+    -This field is required for all request and should contain the email address of the client that is having a request done in behalf
+4.Renamed Notify Customer Name to Broker Name to clarify and improve readbility on the Client and the server side
+    - All API requests should utilizy "BrokerName" as part of the SnapOrder API parameter
+5.Renamed Notify Customer Email to Broker Email to clarify and improve readbility on the Client and the server side
+    - All API requests should utilizy "BrokerEmail" as part of the SnapOrder API parameter
+6.Renamed Notify Customer SMS to Broker SMS to clarify and improve readbility on the Client and the server side
+    - All API requests should utilizy "BrokerSMS" as part of the SnapOrder API parameter
