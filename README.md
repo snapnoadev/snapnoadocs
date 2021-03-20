@@ -53,3 +53,11 @@ Version March 2020
     - All API requests should utilizy "BrokerEmail" as part of the SnapOrder API parameter
 6. Renamed Notify Customer SMS to Broker SMS to clarify and improve readbility on the Client and the server side
     - All API requests should utilizy "BrokerSMS" as part of the SnapOrder API parameter
+
+7. Added new API call GetOrder to retreive a single specific order identified by the Rerence Order number. Details included in Postman Request
+
+8. Provided readable Rerence Order Number to all order requests (List and Individual)
+
+9. Added new secure links on all order requests that provide the Requested file downloads. This emails are only valid for 2 hours from the moment they are requested. After that the link will become invalid. Users can request a new download link from the API (list or individual order calls)
+
+10. Improved notifications and email content to include the Reference order number. (Order received and Order Complete Notifications)
