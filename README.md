@@ -44,8 +44,10 @@ Version March 2020
 
 1. Fixed issues with API uploads failing.
 2. Fixed issues with file retrieiving returning 404 errors.
+
+
 3. Added Mandatory field Client Email to the Order Request 
-    -This field is required for all request and should contain the email address of the client that is having a request done in behalf
+    -This field is required for all request and should contain the email address of the client that is having a request done on their behalf
    
 4. Renamed Notify Customer Name to Broker Name to clarify and improve readbility on the Client and the server side
     - All API requests should utilizy "BrokerName" as part of the SnapOrder API parameter
