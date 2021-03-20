@@ -14,11 +14,11 @@
 		},
 		{
 			"key": "snap_order_json",
-			"value": "{\n    \"ClientFirstName\": \"First\",\n    \"ClientLastName\": \"Last\",\n    \"NotifyContactName\": \"Test Contact Name\",\n    \"NotifyContactEmailAddress\": \"test@example.com\",\n    \"NotifyContactSms\": \"403-222-4444\",\n    \"DocumentsRequested\": [\n        \"NOA\",\n        \"T4\"\n    ]\n}",
+			"value": "{\n    \"ClientFirstName\": \"First\",\n    \"ClientLastName\": \"Last\",\n    \"ClientEmailAddress\": \"testmemes4@test.com\",\n    \"BrokerName\": \"Test Contact Name\",\n    \"BrokerEmail\": \"sebasmuro@gmail.com\",\n    \"BrokerSMSNumber\": \"403-222-4444\",\n    \"DocumentsRequested\": [\n        \"NOA\",\n        \"T4\"\n    ]\n}",
 			"enabled": true
 		}
 	],
 	"_postman_variable_scope": "environment",
-	"_postman_exported_at": "2021-02-23T03:55:24.563Z",
-	"_postman_exported_using": "Postman/8.0.6"
+	"_postman_exported_at": "2021-03-20T04:13:54.687Z",
+	"_postman_exported_using": "Postman/8.0.7"
 }
