@@ -40,7 +40,7 @@ Contact us for more details.
 
 ## CHANGELOG
 
-Version March 2020
+Version March 2021
 
 1. Fixed issues with API uploads failing.
 2. Fixed issues with file retrieiving returning 404 errors.
