@@ -1,10 +1,10 @@
 {
-	"id": "05ab895d-c9b5-4bd5-9537-b48ff09efab4",
+	"id": "e9640657-af8d-41c8-907a-a4a8b8d44741",
 	"name": "SNAP dev",
 	"values": [
 		{
 			"key": "host",
-			"value": "https://localhost:5001",
+			"value": "http://localhost:7071",
 			"enabled": true
 		},
 		{
@@ -14,11 +14,21 @@
 		},
 		{
 			"key": "snap_order_json",
-			"value": "{\"ClientFirstName\":\"First\",\"ClientLastName\":\"Last\",\"BrokerName\":\"Test Contact Name\",\"BrokerEmail\":\"test@example.com\",\"BrokerSMSNumber\":\"403-222-4444\",\"DocumentsRequested\":[\"NOA\",\"T4\"]}",
+			"value": "{\n    \"ClientFirstName\": \"Jane\",\n    \"ClientLastName\": \"Doe\",\n    \"ClientEmailAddress\": \"ggauthier@gmail.com\",\n    \"ClientLanguage\":\"fr\",\n    \"BrokerName\": \"Susan Smith\",\n    \"BrokerEmail\": \"gilles@warefx.com\",\n    \"BrokerSMSNumber\": \"555-555-5555\",\n    \"BrokerLanguage\":\"en\",\n    \"DocumentsRequested\": [\n        \"NOA\",\n        \"T4\"\n    ]\n}",
+			"enabled": true
+		},
+		{
+			"key": "sub_client_key",
+			"value": "",
+			"enabled": true
+		},
+		{
+			"key": "sub_client_id",
+			"value": "",
 			"enabled": true
 		}
 	],
 	"_postman_variable_scope": "environment",
-	"_postman_exported_at": "2021-02-23T03:55:24.563Z",
-	"_postman_exported_using": "Postman/8.0.6"
+	"_postman_exported_at": "2021-11-22T18:04:36.335Z",
+	"_postman_exported_using": "Postman/9.1.5"
 }

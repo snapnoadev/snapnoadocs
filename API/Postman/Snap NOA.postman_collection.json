@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "6d6d2640-b1ff-4649-aae5-3352669bf36f",
+		"_postman_id": "c1af68ac-ea64-456d-bedf-cedbb2b6330e",
 		"name": "Snap NOA",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -45,14 +45,19 @@
 			"response": []
 		},
 		{
-			"name": "Submit Order No Client Consent",
+			"name": "Submit Order Child Account",
 			"request": {
 				"method": "POST",
 				"header": [
 					{
 						"key": "x-functions-key",
-						"type": "text",
-						"value": "{{client_key}}"
+						"value": "{{sub_client_key}}",
+						"type": "text"
+					},
+					{
+						"key": "x-id",
+						"value": "{{sub_client_id}}",
+						"type": "text"
 					}
 				],
 				"body": {
@@ -61,8 +66,7 @@
 						{
 							"key": "SnapConsentFile",
 							"type": "file",
-							"src": "/Users/sebastianguerrero/Downloads/snapnoadocs-main/API/Postman/test.pdf",
-							"disabled": true
+							"src": []
 						},
 						{
 							"key": "SnapOrder",
@@ -136,6 +140,35 @@
 			"response": []
 		},
 		{
+			"name": "List Orders Child Account",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-functions-key",
+						"value": "{{sub_client_key}}",
+						"type": "text"
+					},
+					{
+						"key": "x-id",
+						"value": "{{sub_client_id}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{host}}/api/orders",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"orders"
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "List Document Types",
 			"request": {
 				"method": "GET",
@@ -157,7 +190,62 @@
 					]
 				}
 			},
-			"response": []
+			"response": [
+				{
+					"name": "List Document Types",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-functions-key",
+								"type": "text",
+								"value": "{{client_key}}"
+							}
+						],
+						"url": {
+							"raw": "{{host}}/api/documentTypes",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"documentTypes"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Length",
+							"value": "163"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Encoding",
+							"value": "gzip"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept-Encoding"
+						},
+						{
+							"key": "Request-Context",
+							"value": "appId=cid-v1:bd7160c1-7bd0-44fb-b15d-a247e4b05c3a"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 13 Apr 2021 02:23:05 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    \"NOA\",\n    \"T4\",\n    \"T4A\",\n    \"ProofOfIncome\",\n    \"SOA\",\n    \"CCB\",\n    \"T1013\"\n]"
+				}
+			]
 		},
 		{
 			"name": "List Orders with valid orderStatus",
@@ -171,7 +259,7 @@
 					}
 				],
 				"url": {
-					"raw": "{{host}}/api/orders?orderStatus=completed",
+					"raw": "{{host}}/api/orders?orderStatus=WaitingForCustomerConsent",
 					"host": [
 						"{{host}}"
 					],
@@ -182,7 +270,7 @@
 					"query": [
 						{
 							"key": "orderStatus",
-							"value": "completed"
+							"value": "WaitingForCustomerConsent"
 						}
 					]
 				}
@@ -190,18 +278,23 @@
 			"response": []
 		},
 		{
-			"name": "List Orders with invalid orderStatus",
+			"name": "List Orders with valid orderStatus Child Account",
 			"request": {
 				"method": "GET",
 				"header": [
 					{
 						"key": "x-functions-key",
-						"value": "{{client_key}}",
+						"type": "text",
+						"value": "{{sub_client_key}}"
+					},
+					{
+						"key": "x-id",
+						"value": "{{sub_client_id}}",
 						"type": "text"
 					}
 				],
 				"url": {
-					"raw": "{{host}}/api/orders?orderStatus=some_nonexistant_status",
+					"raw": "{{host}}/api/orders?orderStatus=WaitingForCustomerConsent",
 					"host": [
 						"{{host}}"
 					],
@@ -212,7 +305,7 @@
 					"query": [
 						{
 							"key": "orderStatus",
-							"value": "some_nonexistant_status"
+							"value": "WaitingForCustomerConsent"
 						}
 					]
 				}
@@ -231,7 +324,7 @@
 					}
 				],
 				"url": {
-					"raw": "{{host}}/api/order?orderID=35",
+					"raw": "{{host}}/api/order?orderID=247&multipleFileDownload=false",
 					"host": [
 						"{{host}}"
 					],
@@ -242,7 +335,50 @@
 					"query": [
 						{
 							"key": "orderID",
-							"value": "35"
+							"value": "247"
+						},
+						{
+							"key": "multipleFileDownload",
+							"value": "false"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Order Child Account",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-functions-key",
+						"value": "{{sub_client_key}}",
+						"type": "text"
+					},
+					{
+						"key": "x-id",
+						"value": "{{sub_client_id}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{host}}/api/order?orderID=648&multipleFileDownload=false",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"order"
+					],
+					"query": [
+						{
+							"key": "orderID",
+							"value": "648"
+						},
+						{
+							"key": "multipleFileDownload",
+							"value": "false"
 						}
 					]
 				}
@@ -279,6 +415,60 @@
 							"key": "expiry",
 							"value": "Z0VV1Lsxv2QZg5fAntJdNWGDy%2FgQ8%2BgcTe7LvCTLBrTdy5xmK9VWm4Rs4PeaBpBG"
 						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CreateClient",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "x-functions-key",
+						"value": "{{client_key}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "firstName",
+							"value": "Gilles",
+							"type": "text"
+						},
+						{
+							"key": "lastName",
+							"value": "Gauthier",
+							"type": "text"
+						},
+						{
+							"key": "emailAddress",
+							"value": "ggauthier@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "companyName",
+							"value": "wareFX2",
+							"type": "text"
+						},
+						{
+							"key": "webhookUrl",
+							"value": "https://webhook.site/85d517a8-228e-4a3c-9467-3ad090e9c4ea",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{host}}/api/clients",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"clients"
 					]
 				}
 			},
