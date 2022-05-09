@@ -14,11 +14,23 @@
 		},
 		{
 			"key": "snap_order_json",
-			"value": "{\n    \"ClientFirstName\": \"Jane\",\n    \"ClientLastName\": \"Doe\",\n    \"ClientEmailAddress\": \"ggauthier@gmail.com\",\n    \"ClientLanguage\":\"fr\",\n    \"BrokerName\": \"Susan Smith\",\n    \"BrokerEmail\": \"gilles@warefx.com\",\n    \"BrokerSMSNumber\": \"555-555-5555\",\n    \"BrokerLanguage\":\"en\",\n    \"DocumentsRequested\": [\n        \"NOA\",\n        \"T4\"\n    ]\n}",
+			"value": "{\n    \"ClientFirstName\": \"Jane\",\n    \"ClientLastName\": \"Doe\",\n    \"ClientEmailAddress\": \"ggauthier@gmail.com\",\n    \"ClientLanguage\":\"en\",\n    \"BrokerName\": \"Susan Smith\",\n    \"BrokerEmail\": \"gilles@warefx.com\",\n    \"BrokerSMSNumber\": \"555-555-5555\",\n    \"BrokerLanguage\":\"fr\",\n    \"BrokerNote\":\"Message from the broker.\\r\\nIntended for SnapNOA to view with the order request\",\n    \"DocumentsRequested\": [\n        \"NOA\",\n        \"T4\"\n    ]\n}",
+			"enabled": true
+		},
+		{
+			"key": "sub_client_key",
+			"value": "",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "sub_client_id",
+			"value": "",
+			"type": "default",
 			"enabled": true
 		}
 	],
 	"_postman_variable_scope": "environment",
-	"_postman_exported_at": "2021-11-22T18:04:53.352Z",
-	"_postman_exported_using": "Postman/9.1.5"
+	"_postman_exported_at": "2022-05-09T16:20:45.069Z",
+	"_postman_exported_using": "Postman/9.17.1"
 }

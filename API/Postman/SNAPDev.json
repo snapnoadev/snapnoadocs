@@ -14,21 +14,21 @@
 		},
 		{
 			"key": "snap_order_json",
-			"value": "{\n    \"ClientFirstName\": \"Jane\",\n    \"ClientLastName\": \"Doe\",\n    \"ClientEmailAddress\": \"ggauthier@gmail.com\",\n    \"ClientLanguage\":\"fr\",\n    \"BrokerName\": \"Susan Smith\",\n    \"BrokerEmail\": \"gilles@warefx.com\",\n    \"BrokerSMSNumber\": \"555-555-5555\",\n    \"BrokerLanguage\":\"en\",\n    \"DocumentsRequested\": [\n        \"NOA\",\n        \"T4\"\n    ]\n}",
+			"value": "{\n    \"ClientFirstName\": \"Jane\",\n    \"ClientLastName\": \"Doe\",\n    \"ClientEmailAddress\": \"ggauthier@gmail.com\",\n    \"ClientLanguage\":\"fr\",\n    \"BrokerName\": \"Susan Smith\",\n    \"BrokerEmail\": \"gilles@warefx.com\",\n    \"BrokerSMSNumber\": \"555-555-5555\",\n    \"BrokerLanguage\":\"en\",\n\t\"BrokerNote\":\"This is a note from the broker!\",\n\t\"SnapNOANote\":\"This is a SnapNOA Note!\",\n    \"DocumentsRequested\": [\n        \"NOA\",\n        \"T4\"\n    ]\n}",
 			"enabled": true
 		},
 		{
 			"key": "sub_client_key",
-			"value": "",
+			"value": "aUCl5/pSs/IdZ/tCgtoKfpCXFvkGnd3CydnwmNlw47RsN9dKd5oYWA==",
 			"enabled": true
 		},
 		{
 			"key": "sub_client_id",
-			"value": "",
+			"value": "cfc3e83a-0979-4e66-aa54-788aeb7b398d",
 			"enabled": true
 		}
 	],
 	"_postman_variable_scope": "environment",
-	"_postman_exported_at": "2021-11-22T18:04:36.335Z",
-	"_postman_exported_using": "Postman/9.1.5"
+	"_postman_exported_at": "2022-05-09T16:21:49.309Z",
+	"_postman_exported_using": "Postman/9.17.1"
 }
